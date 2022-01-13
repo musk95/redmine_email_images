@@ -1,19 +1,6 @@
 #encoding: utf-8
 
-#require_dependency 'mail_handler'
-
 module MailHandlerRemoveInlineImagesPatch
-#  def self.included(base) # :nodoc:
-#    base.send(:include, InstanceMethods)
-#    base.class_eval do
-#      alias_method_chain :add_attachments, :remove_inline_images
-#      alias_method :add_attachments
-#      alias_method :remove_inline_images
-#    end
-#  end
-
-#  module InstanceMethods
-#    def add_attachments_with_remove_inline_images(obj)
   def add_attachments(obj)
     truncated = decoded_html.split(INVISIBLE_EMAIL_HEADER_DECODED, 2)[1]
     if truncated
@@ -46,7 +33,6 @@ module MailHandlerRemoveInlineImagesPatch
         Mail::RubyVer.pick_encoding(email.html_part.charset).to_s : p.charset
     Redmine::CodesetUtil.to_utf8(p.body.decoded, body_charset)
   end
-#  end
 end
 
 MailHandler.send(:include, MailHandlerRemoveInlineImagesPatch)
