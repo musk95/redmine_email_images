@@ -22,5 +22,5 @@ rake redmine:plugins:migrate RAILS_ENV=production
 
 ## Compatibility
 
-The latest version of this plugin is only tested with Redmine 2.6-stable and 3.0-stable.
+The latest version of this plugin is only tested with Redmine 4.2.3.stable.
 
